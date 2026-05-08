@@ -1,8 +1,8 @@
-# 🚀 My Neovim Configuration
+# My Neovim Configuration
 
 A customized Neovim setup based on [LazyVim](https://github.com/LazyVim/LazyVim), optimized for Java development and enhanced for [Neovide](https://neovide.dev/).
 
-## ✨ Features
+## Features
 
 - **Java Focused:** Deep integration with `nvim-jdtls`, Maven support, and custom Eclipse-style formatting.
 - **Enhanced Debugging:** Full DAP support with `nvim-dap-ui` and virtual text.
@@ -17,7 +17,7 @@ A customized Neovim setup based on [LazyVim](https://github.com/LazyVim/LazyVim)
 | `:RunC`   | Compiles the current C file with `clang` and runs it in the terminal.    |
 | `:RunCMD` | Compiles the current C file and runs it in a new Windows Command Prompt. |
 
-## ⌨️ Keybindings
+## Keybindings
 
 ### Neovide (Global)
 
@@ -43,7 +43,7 @@ A customized Neovim setup based on [LazyVim](https://github.com/LazyVim/LazyVim)
 | `<leader>ls` | Start Live Server (Port 8080) |
 | `<leader>lS` | Stop Live Server              |
 
-## 📦 Plugins Overview
+## Plugins Overview
 
 This configuration includes several essential plugins:
 
@@ -56,7 +56,7 @@ This configuration includes several essential plugins:
 - **[markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim):** Real-time markdown preview in the browser.
 - **[lazygit.nvim](https://github.com/kdheepak/lazygit.nvim):** Git management inside Neovim.
 
-## ⚙️ Configuration Details
+## Configuration Details
 
 - **Tab Width:** Set to 4 spaces globally.
 - **Java Formatting:** Uses `eclipse-style.xml` located in the config root.
