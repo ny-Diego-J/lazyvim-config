@@ -1,25 +1,17 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
---
--- Add any additional autocmds here
--- with `vim.api.nvim_create_autocmd`
---
--- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
-
 vim.api.nvim_create_user_command("RunC", function()
-    vim.cmd("!clang % -o %:r.exe && ./%:r.exe")
-end, {})
+    local file = vim.fn.expand("%")
+    local out = vim.fn.expand("%:r.exe")
 
-vim.api.nvim_create_user_command("RunCMD", function()
-    vim.cmd("!clang % -o %:r.exe && start cmd /k %:r.exe")
-end, {})
+    vim.notify("Compiling " .. file .. "...", vim.log.levels.INFO)
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client.name == "jdtls" then
-            vim.diagnostic.enable(true, { bufnr = args.buf })
-        end
-    end,
-})
+    vim.system({ "clang", file, "-o", out }, { text = true }, function(obj)
+        vim.schedule(function()
+            if obj.code == 0 then
+                vim.notify("Compilation successful!", vim.log.levels.INFO)
+                vim.cmd("split | terminal ./" .. out)
+            else
+                vim.notify("Compilation failed:\n" .. obj.stderr, vim.log.levels.ERROR)
+            end
+        end)
+    end)
+end, { desc = "Compile and run C file" })

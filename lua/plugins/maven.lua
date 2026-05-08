@@ -44,15 +44,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
         vim.keymap.set("n", "<F5>", function()
             vim.cmd("silent make!")
-            vim.cmd("redraw!")
-
-            vim.notify("Starting to build ...", vim.log.levels.INFO)
-            if vim.v.shell_error == 0 then
-                vim.notify("Successfully build", vim.log.levels.INFO)
+            if vim.v.shell_error ~= 0 then
+                vim.cmd("copen")
+                vim.notify("Build failed!", vim.log.levels.ERROR)
             else
-                vim.notify("build failed! Enter :copen to get infos", vim.log.levels.ERROR)
+                vim.cmd("cclose")
+                vim.notify("Build successful", vim.log.levels.INFO)
             end
-        end, { desc = "Maven Build (Lautlos + Info)", buffer = true })
+        end, { desc = "Maven Build", buffer = true })
         vim.keymap.set("n", "<F7>", "<cmd>split | terminal mvn.cmd test<CR>", { desc = "Maven Test", buffer = true })
     end,
 })
