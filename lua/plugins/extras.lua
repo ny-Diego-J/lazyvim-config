@@ -1,16 +1,16 @@
+-- misc plugins
 return {
-    -- 0. Dem Menü einen coolen Namen geben (für das Which-Key Popup)
     {
         "folke/which-key.nvim",
         opts = function()
             local wk = require("which-key")
             wk.add({
-                { "<leader>h", group = "Fun & History", icon = "" }, -- So heißt dein Menü jetzt
+                { "<leader>h", group = "Fun & History", icon = "" },
             })
         end,
     },
 
-    -- 1. Cellular Automaton (Code schmelzen lassen)
+    -- 1. Cellular Automaton. Funny idle animations
     {
         "eandrju/cellular-automaton.nvim",
         keys = {
@@ -24,13 +24,13 @@ return {
         "IogaMaster/neocord",
         event = "VeryLazy",
         opts = {
-            logo = "auto", -- Nimmt automatisch das Neovim-Logo
-            show_time = true, -- Zeigt an, wie lange du schon codest
+            logo = "auto",
+            show_time = true,
             global_timer = true,
         },
     },
 
-    -- 3. Undotree (Die Zeitmaschine)
+    -- 3. Undotree peak
     {
         "mbbill/undotree",
         keys = {
@@ -38,7 +38,6 @@ return {
             { "<leader>hf", "<cmd>UndotreeFocus<CR>", desc = "Undo Tree Fokussieren" },
         },
         init = function()
-            -- Windows-Fix: Wir klauen uns das 'diff' Tool einfach aus deinem Git-Ordner
             if vim.fn.has("win32") == 1 then
                 vim.g.undotree_DiffCommand = "C:/Program Files/Git/usr/bin/diff.exe"
             end
@@ -58,8 +57,8 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
-            style = "moon", -- Hier sagen wir ihm, dass er IMMER Moon nehmen soll
-            transparent = vim.g.neovide_transparency ~= nil, -- Macht den Hintergrund transparent für Neovide (falls du das nutzt)
+            style = "moon",
+            transparent = vim.g.neovide_transparency ~= nil,
         },
     },
 }

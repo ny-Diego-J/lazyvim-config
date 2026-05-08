@@ -1,3 +1,4 @@
+-- java formatter and optimisation of jdtls
 return {
     {
         "mfussenegger/nvim-jdtls",
@@ -6,7 +7,6 @@ return {
             local win_safe_path = config_dir:gsub("\\", "/")
             local format_url = "file:///" .. win_safe_path .. "/eclipse-style.xml"
 
-            -- 1. Initialize settings if they don't exist
             opts.settings = opts.settings or {}
             opts.settings.java = opts.settings.java or {}
 
@@ -15,12 +15,11 @@ return {
                 settings = { url = format_url },
             }
 
-            -- 3. Add the Performance Flags (The JVM args)
-            -- We insert them at the beginning of the command list
+            -- jvm optimisations
             opts.jdtls_args = {
-                "-Xmx2G", -- Max RAM (2GB)
+                "-Xmx2G", -- Max RAM 2GB
                 "-XX:+UseParallelGC", -- Faster garbage collection
-                "-Xms512m", -- Initial RAM (starts faster)
+                "-Xms512m", -- Initial RAM
             }
 
             return opts

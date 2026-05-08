@@ -3,7 +3,7 @@
 -- Add any additional options here
 vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 
--- Einrückung auf 4 Leerzeichen
+-- make tab spacing 4 chars
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -14,6 +14,7 @@ vim.diagnostic.config({
     update_in_insert = false,
 })
 
+-- zooming in and out
 vim.g.neovide_scale_factor = 1.0
 local change_scale_factor = function(delta)
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
@@ -39,6 +40,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
+-- Attemt to make two coloscheme that dissables the blurr on toggle
+-- Windows doens't allow that
 vim.g.neovide_window_blurred = true
 
 local setTransparent = function()
@@ -50,7 +53,6 @@ local setTransparent = function()
         vim.g.neovide_opacity = 0.0
         vim.g.neovide_window_blurred = false
         vim.cmd.colorscheme("zaibatsu")
-        -- set coloscheme to vim.lua
     end
     vim.cmd("redraw!")
 end
