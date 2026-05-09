@@ -1,21 +1,30 @@
 return {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-        opts.formatters_by_ft = {
-            javascript = { "prettier" },
-            typescript = { "prettier" },
-            html = { "prettier" },
-            css = { "prettier" },
-            json = { "prettier" },
-        }
+    opts = {},
+    config = function()
+        require("conform").setup({
+            format_on_save = {
+                timeout_ms = 5000,
+                lsp_format = "fallback",
+            },
+            formatters_by_ft = {
+                c = { "clang-format" },
+                cpp = { "clang-format" },
+                lua = { "stylua" },
+                go = { "gofmt" },
+                javascript = { "prettier" },
+                typescript = { "prettier" },
+                elixir = { "mix" },
+            },
+            formatters = {
+                ["clang-format"] = {
+                    prepend_args = { "-style=file", "-fallback-style=LLVM" },
+                },
+            },
+        })
 
-        opts.formatters = opts.formatters or {}
-        opts.formatters.prettier = {
-            args = function(self, ctx)
-                local ft = vim.bo[ctx.buf].filetype
-                local width = (ft == "html" or ft == "css") and "2" or "4"
-                return { "--stdin-filepath", "$FILENAME", "--tab-width", width }
-            end,
-        }
+        vim.keymap.set("n", "<leader>jf", function()
+            require("conform").format({ bufnr = 0 })
+        end)
     end,
 }
