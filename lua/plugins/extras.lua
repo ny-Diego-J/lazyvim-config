@@ -1,14 +1,5 @@
 -- misc plugins
 return {
-    {
-        "folke/which-key.nvim",
-        opts = function()
-            local wk = require("which-key")
-            wk.add({
-                { "<leader>h", group = "Fun & History", icon = "" },
-            })
-        end,
-    },
 
     -- 1. Cellular Automaton. Funny idle animations
     {

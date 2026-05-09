@@ -22,30 +22,6 @@ if vim.g.neovide then
     vim.api.nvim_set_current_dir("C:\\Users\\digij")
 end
 
-require("conform").setup({
-    formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        html = { "prettier" },
-        css = { "prettier" },
-    },
-    formatters = {
-        prettier = {
-            args = function(self, ctx)
-                -- Check if the current file is HTML or CSS
-                local ft = vim.bo[ctx.buf].filetype
-                local width = "4" -- default
-
-                if ft == "html" or ft == "css" then
-                    width = "2"
-                end
-
-                return { "--stdin-filepath", "$FILENAME", "--tab-width", width }
-            end,
-        },
-    },
-})
-
 if vim.g.neovide == true then
     vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
 end

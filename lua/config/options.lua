@@ -63,3 +63,7 @@ if vim.g.neovide then
         setTransparent()
     end)
 end
+
+-- EXPORER
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 50
