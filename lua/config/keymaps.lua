@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 map("n", "<leader>e", ":Ex<CR>", { desc = "Open netrw explorer" })
+map("n", "<leader>E", ":Sex<CR>", { desc = "Open netrw explorer" })
 
 map("n", "<leader>jj", ":Telescope find_files<cr>", { desc = "Find Files" })
 map("n", "<C-p>", ":Telescope git_files<cr>", { desc = "Git Files" })
