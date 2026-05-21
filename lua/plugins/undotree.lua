@@ -1,5 +1,6 @@
 return {
     "mbbill/undotree",
+    lazy = false,
     keys = {
         { "<leader>hu", "<cmd>UndotreeToggle<CR>", desc = "Undo Tree öffnen" },
         { "<leader>hf", "<cmd>UndotreeFocus<CR>", desc = "Undo Tree Fokussieren" },

@@ -11,4 +11,5 @@ return {
             { "<leader>E", false },
         },
     },
+    { "akinsho/bufferline.nvim", enabled = false },
 }

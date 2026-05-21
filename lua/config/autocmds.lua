@@ -15,3 +15,10 @@ vim.api.nvim_create_user_command("RunC", function()
         end)
     end)
 end, { desc = "Compile and run C file" })
+-- removes netrw from the buffers
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        vim.bo.bufhidden = "wipe" -- Löscht den Buffer aus der Liste, wenn er nicht mehr sichtbar ist
+    end,
+})

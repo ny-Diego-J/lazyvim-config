@@ -8,7 +8,9 @@ return {
             go = { "gofmt" },
             javascript = { "prettier" },
             typescript = { "prettier" },
+            typescriptreact = { "prettier" },
             elixir = { "mix" },
+            bash = { "shfmt" },
         },
         formatters = {
             ["clang-format"] = {
