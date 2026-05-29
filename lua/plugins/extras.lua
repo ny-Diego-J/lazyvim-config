@@ -1,7 +1,4 @@
--- misc plugins
 return {
-
-    -- 1. Cellular Automaton. Funny idle animations
     {
         "eandrju/cellular-automaton.nvim",
         keys = {
@@ -10,7 +7,6 @@ return {
         },
     },
 
-    -- 2. Neocord (Discord Rich Presence)
     {
         "IogaMaster/neocord",
         event = "VeryLazy",
@@ -21,18 +17,6 @@ return {
         },
     },
 
-    -- 3. Undotree peak
-    -- {
-    --     "mbbill/undotree",
-    --
-    --     init = function()
-    --         if vim.fn.has("win32") == 1 then
-    --             vim.g.undotree_DiffCommand = "C:/Program Files/Git/usr/bin/diff.exe"
-    --         end
-    --     end,
-    -- },
-
-    -- 4. WakaTime (Statistiken sammeln)
     {
         "wakatime/vim-wakatime",
         event = "LazyFile",

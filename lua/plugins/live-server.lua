@@ -1,4 +1,3 @@
--- running live websites
 return {
     "selimacerbas/live-server.nvim",
     cmd = { "LiveServerStart", "LiveServerStop" },

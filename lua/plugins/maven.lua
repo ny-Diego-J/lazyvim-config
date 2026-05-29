@@ -1,5 +1,3 @@
--- building with f5, running with f6 and running tests with f7
-
 _G.last_java_main_class = _G.last_java_main_class or ""
 
 vim.api.nvim_create_autocmd("FileType", {

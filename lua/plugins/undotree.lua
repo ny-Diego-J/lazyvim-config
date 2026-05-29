@@ -2,8 +2,8 @@ return {
     "mbbill/undotree",
     lazy = false,
     keys = {
-        { "<leader>hu", "<cmd>UndotreeToggle<CR>", desc = "Undo Tree öffnen" },
-        { "<leader>hf", "<cmd>UndotreeFocus<CR>", desc = "Undo Tree Fokussieren" },
+        { "<leader>hu", "<cmd>UndotreeToggle<CR>", desc = "Open undotree" },
+        { "<leader>hf", "<cmd>UndotreeFocus<CR>", desc = "Focus undotree" },
     },
     init = function()
         if vim.fn.has("win32") == 1 then
