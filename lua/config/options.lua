@@ -25,10 +25,6 @@ if vim.g.neovide then
     vim.api.nvim_set_current_dir("C:\\Users\\digij")
 end
 
-if vim.g.neovide == true then
-    vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
-end
-
 -- zooming in and out
 vim.g.neovide_scale_factor = 1.0
 local change_scale_factor = function(delta)
@@ -82,3 +78,5 @@ end
 -- EXPORER
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 50
+
+vim.g.neovide_cursor_vfx_mode = "pixiedust" -- options: "railgun", "torpedo", "pixiedust", "sonicboom"

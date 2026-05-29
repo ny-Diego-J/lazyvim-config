@@ -10,6 +10,10 @@ map("n", "<leader>js", function()
     require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
 end, { desc = "Grep Word" })
 
+vim.keymap.set("n", "<F11>", function()
+    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+end, { desc = "Toggle Fullscreen" })
+
 local harpoon = require("harpoon")
 
 harpoon.setup({})
