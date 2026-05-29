@@ -9,10 +9,25 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
+vim.g.neovide_refresh_rate = 60
+
+vim.g.neovide_refresh_rate_idle = 5 -- Spart Akku, wenn du nichts tust
+vim.g.neovide_vsync = false -- Testweise VSync deaktivieren
+
 vim.diagnostic.config({
     virtual_text = true,
-    update_in_insert = false,
+    update_in_insert = true,
+    signs = true,
+    underline = true,
 })
+
+if vim.g.neovide then
+    vim.api.nvim_set_current_dir("C:\\Users\\digij")
+end
+
+if vim.g.neovide == true then
+    vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
+end
 
 -- zooming in and out
 vim.g.neovide_scale_factor = 1.0
