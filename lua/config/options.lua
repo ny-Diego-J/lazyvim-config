@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
--- Attemt to make two coloscheme that dissables the blurr on toggle
+-- Attemt to make two coloschemes that dissables the blurr on toggle
 -- Windows doens't allow that
 vim.g.neovide_window_blurred = true
 
@@ -61,7 +61,7 @@ local setTransparent = function()
         vim.g.neovide_opacity = 0.8
         vim.cmd.colorscheme("tokyonight-moon")
     else
-        vim.g.neovide_opacity = 0.0
+        vim.g.neovide_opacity = 0.1
         vim.g.neovide_window_blurred = false
         vim.cmd.colorscheme("zaibatsu")
     end
@@ -75,7 +75,6 @@ if vim.g.neovide then
     end)
 end
 
--- EXPORER
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 50
 

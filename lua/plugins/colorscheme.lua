@@ -1,4 +1,3 @@
--- themes to test out
 return {
     {
         "folke/tokyonight.nvim",
