@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
             build_cmd = '"' .. gradle_bin .. '" -p "' .. gradle_root .. '" compileJava'
             test_cmd = '"' .. gradle_bin .. '" -p "' .. gradle_root .. '" test'
+
             run_base_cmd = '"' .. gradle_bin .. '" -p "' .. gradle_root .. '" run'
             build_system_name = "Gradle"
         else
@@ -94,14 +95,7 @@ vim.api.nvim_create_autocmd("FileType", {
                         end
                     elseif is_gradle then
                         if args ~= "" then
-                            cmd = cmd
-                        end
-                    else
-                        if main_class ~= "" then
-                            cmd = cmd .. " " .. main_class
-                        end
-                        if args ~= "" then
-                            cmd = cmd .. " " .. args
+                            cmd = cmd .. ' --args="' .. args .. '"'
                         end
                     end
 
