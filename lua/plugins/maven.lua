@@ -45,6 +45,7 @@ M.config = function()
                     end
                     _G.last_java_main_class = main_class
 
+<<<<<<< HEAD
                     vim.ui.input({
                         prompt = "Arguments (optional): ",
                         default = _G.last_java_args,
@@ -53,6 +54,13 @@ M.config = function()
                             return
                         end
                         _G.last_java_args = args
+=======
+<<<<<<< HEAD
+                    local cmd = "split | terminal mvn exec:java"
+=======
+                    local cmd = "split | terminal " .. run_base_cmd
+>>>>>>> refs/remotes/origin/main
+>>>>>>> 56c29fec12aea840aa17249c0f8dcc3d65735c16
 
                         local cmd_args = {}
                         if project.type == "gradle" then
@@ -79,7 +87,32 @@ M.config = function()
                 end)
             end, { desc = "Java Run", buffer = true })
 
+<<<<<<< HEAD
             vim.opt.shellpipe = ">%s 2>&1"
+=======
+<<<<<<< HEAD
+        vim.opt_local.makeprg = "mvn compile"
+        vim.opt.shellpipe = ">%s 2>&1"
+
+        vim.keymap.set("n", "<F5>", function()
+            vim.cmd("silent make!")
+            if vim.v.shell_error ~= 0 then
+                vim.cmd("copen")
+                vim.notify("Build failed!", vim.log.levels.ERROR)
+            else
+                vim.cmd("cclose")
+                vim.notify("Build successful", vim.log.levels.INFO)
+            end
+        end, { desc = "Maven Build", buffer = true })
+        vim.keymap.set("n", "<F7>", "<cmd>split | terminal mvn test<CR>", { desc = "Maven Test", buffer = true })
+=======
+        vim.keymap.set("n", "<F7>", function()
+            vim.cmd("split | terminal " .. test_cmd)
+        end, { desc = build_system_name .. " Test", buffer = true })
+>>>>>>> refs/remotes/origin/main
+    end,
+})
+>>>>>>> 56c29fec12aea840aa17249c0f8dcc3d65735c16
 
             vim.keymap.set("n", "<F5>", function()
                 if project.type == "gradle" then
