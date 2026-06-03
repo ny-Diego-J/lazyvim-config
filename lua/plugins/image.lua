@@ -1,7 +1,7 @@
 return {
     "3rd/image.nvim",
     opts = {
-        backend = "kitty", -- or "ueberzug" if your term doesn't support kitty protocol
+        backend = "kitty",
         integrations = {
             telescope = {
                 enabled = true,

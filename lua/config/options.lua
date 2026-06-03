@@ -9,10 +9,21 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
+vim.g.neovide_refresh_rate = 60
+
+vim.g.neovide_refresh_rate_idle = 5 -- Spart Akku, wenn du nichts tust
+vim.g.neovide_vsync = false -- Testweise VSync deaktivieren
+
 vim.diagnostic.config({
     virtual_text = true,
-    update_in_insert = false,
+    update_in_insert = true,
+    signs = true,
+    underline = true,
 })
+
+if vim.g.neovide then
+    vim.api.nvim_set_current_dir("C:\\Users\\digij")
+end
 
 -- zooming in and out
 vim.g.neovide_scale_factor = 1.0
@@ -40,7 +51,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
--- Attemt to make two coloscheme that dissables the blurr on toggle
+-- Attemt to make two coloschemes that dissables the blurr on toggle
 -- Windows doens't allow that
 vim.g.neovide_window_blurred = true
 
@@ -50,7 +61,7 @@ local setTransparent = function()
         vim.g.neovide_opacity = 0.8
         vim.cmd.colorscheme("tokyonight-moon")
     else
-        vim.g.neovide_opacity = 0.0
+        vim.g.neovide_opacity = 0.1
         vim.g.neovide_window_blurred = false
         vim.cmd.colorscheme("zaibatsu")
     end
@@ -64,6 +75,7 @@ if vim.g.neovide then
     end)
 end
 
--- EXPORER
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 50
+
+-- vim.g.neovide_cursor_vfx_mode = "pixiedust" -- options: "railgun", "torpedo", "pixiedust", "sonicboom"

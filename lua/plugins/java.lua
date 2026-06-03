@@ -1,4 +1,3 @@
--- java formatter and optimisation of jdtls
 return {
     {
         "mfussenegger/nvim-jdtls",
@@ -10,16 +9,14 @@ return {
             opts.settings = opts.settings or {}
             opts.settings.java = opts.settings.java or {}
 
-            -- 2. Add your formatting
             opts.settings.java.format = {
                 settings = { url = format_url },
             }
 
-            -- jvm optimisations
             opts.jdtls_args = {
-                "-Xmx2G", -- Max RAM 2GB
-                "-XX:+UseParallelGC", -- Faster garbage collection
-                "-Xms512m", -- Initial RAM
+                "-Xmx2G",
+                "-XX:+UseParallelGC",
+                "-Xms512m",
             }
 
             return opts
