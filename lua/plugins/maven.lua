@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
                     end
                     _G.last_java_args = args
 
-                    local cmd = "split | terminal mvn.cmd exec:java"
+                    local cmd = "split | terminal mvn exec:java"
 
                     if main_class ~= "" then
                         cmd = cmd .. ' -Dexec.mainClass="' .. main_class .. '"'
@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd("FileType", {
             end)
         end, { desc = "Maven Run (Main + Args)", buffer = true })
 
-        vim.opt_local.makeprg = "mvn.cmd compile"
+        vim.opt_local.makeprg = "mvn compile"
         vim.opt.shellpipe = ">%s 2>&1"
 
         vim.keymap.set("n", "<F5>", function()
@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd("FileType", {
                 vim.notify("Build successful", vim.log.levels.INFO)
             end
         end, { desc = "Maven Build", buffer = true })
-        vim.keymap.set("n", "<F7>", "<cmd>split | terminal mvn.cmd test<CR>", { desc = "Maven Test", buffer = true })
+        vim.keymap.set("n", "<F7>", "<cmd>split | terminal mvn test<CR>", { desc = "Maven Test", buffer = true })
     end,
 })
 
