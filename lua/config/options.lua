@@ -79,3 +79,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 50
 
 -- vim.g.neovide_cursor_vfx_mode = "pixiedust" -- options: "railgun", "torpedo", "pixiedust", "sonicboom"
+
+-- languages
+vim.opt.spell = true
+vim.opt.spelllang = { "en", "de", "fr" }
