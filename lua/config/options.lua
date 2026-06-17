@@ -1,6 +1,23 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
+-- Basic Neovim defaults
+local opt = vim.opt
+
+opt.number = true             -- Show line numbers
+opt.relativenumber = true     -- Relative line numbers
+opt.clipboard = "unnamedplus"   -- Use system clipboard
+opt.splitright = true         -- Vertical splits to the right
+opt.splitbelow = true         -- Horizontal splits below
+opt.undofile = true           -- Enable persistent undo
+opt.ignorecase = true         -- Case insensitive searching
+opt.smartcase = true          -- Case-sensitive if uppercase present
+opt.mouse = "a"               -- Enable mouse support
+opt.cursorline = true         -- Highlight the current line
+opt.termguicolors = true      -- True color support
+opt.signcolumn = "yes"        -- Always show signcolumn
+opt.scrolloff = 8             -- Keep at least 8 lines above/below cursor
+opt.updatetime = 250          -- Faster completion / diagnostic response
+
+-- Custom options
+vim.g.lazyvim_check_order = false
 vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 
 -- make tab spacing 4 chars
@@ -10,7 +27,6 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 vim.g.neovide_refresh_rate = 60
-
 vim.g.neovide_refresh_rate_idle = 5 -- Spart Akku, wenn du nichts tust
 vim.g.neovide_vsync = false -- Testweise VSync deaktivieren
 

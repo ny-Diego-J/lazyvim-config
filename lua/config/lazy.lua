@@ -14,12 +14,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Add LazyVim repository to rtp so modules can be required
+local lazyvim_path = vim.fn.stdpath("data") .. "/lazy/LazyVim"
+vim.opt.rtp:prepend(lazyvim_path)
+
 require("lazy").setup({
     spec = {
-        -- add LazyVim and import its plugins
-        { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        { "wakatime/vim-wakatime", lazy = false },
-        -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+        { "LazyVim/LazyVim", priority = 10000, lazy = false, opts = {} },
+        { "wakatime/vim-wakatime", event = "VeryLazy" },
+        -- import core plugins
+        { import = "plugins.core" },
         -- import/override with your plugins
         { import = "plugins" },
     },

@@ -16,21 +16,4 @@ return {
             global_timer = true,
         },
     },
-
-    {
-        "wakatime/vim-wakatime",
-        event = "LazyFile",
-    },
-
-    { "folke/tokyonight.nvim", priority = 1000 },
-
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            style = "moon",
-            transparent = vim.g.neovide_transparency ~= nil,
-        },
-    },
 }

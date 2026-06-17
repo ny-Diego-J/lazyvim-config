@@ -1,6 +1,21 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Add any additional keymaps here
+
 local map = vim.keymap.set
+
+--------------------------------------------------------------------------------
+-- Ctrl+V Paste & Ctrl+Q Visual Block for Windows / Neovide Support
+--------------------------------------------------------------------------------
+-- Paste from system clipboard with Ctrl+v in insert and command-line modes
+map({ "i", "c" }, "<C-v>", "<C-r>+", { desc = "Paste from Clipboard" })
+-- Paste from system clipboard with Ctrl+v in normal mode
+map("n", "<C-v>", '"+gP', { desc = "Paste from Clipboard" })
+-- Remap Visual Block Mode to Ctrl+q since Ctrl+v is used for pasting
+map("n", "<C-q>", "<C-v>", { desc = "Visual Block Mode" })
+
+--------------------------------------------------------------------------------
+-- Custom Keymaps
+--------------------------------------------------------------------------------
 map("n", "<leader>e", ":Ex<CR>", { desc = "Open netrw explorer" })
 map("n", "<leader>E", ":Sex<CR>", { desc = "Open netrw explorer" })
 
@@ -10,38 +25,38 @@ map("n", "<leader>js", function()
     require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
 end, { desc = "Grep Word" })
 
-vim.keymap.set("n", "<F11>", function()
+map("n", "<F11>", function()
     vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
 end, { desc = "Toggle Fullscreen" })
 
+-- Harpoon Setup & Mappings
 local harpoon = require("harpoon")
-
 harpoon.setup({})
 
-vim.keymap.set("n", "<leader>a", function()
+map("n", "<leader>a", function()
     harpoon:list():add()
-end)
-vim.keymap.set("n", "<C-e>", function()
+end, { desc = "Harpoon Add" })
+map("n", "<C-e>", function()
     harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
+end, { desc = "Harpoon Menu" })
 
-vim.keymap.set("n", "<C-z>", function()
+map("n", "<C-z>", function()
     harpoon:list():select(1)
-end)
-vim.keymap.set("n", "<C-t>", function()
+end, { desc = "Harpoon file 1" })
+map("n", "<C-t>", function()
     harpoon:list():select(2)
-end)
-vim.keymap.set("n", "<C-n>", function()
+end, { desc = "Harpoon file 2" })
+map("n", "<C-n>", function()
     harpoon:list():select(3)
-end)
-vim.keymap.set("n", "<C-s>", function()
+end, { desc = "Harpoon file 3" })
+map("n", "<C-s>", function()
     harpoon:list():select(4)
-end)
+end, { desc = "Harpoon file 4" })
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function()
+map("n", "<C-S-P>", function()
     harpoon:list():prev()
-end)
-vim.keymap.set("n", "<C-S-N>", function()
+end, { desc = "Harpoon Previous" })
+map("n", "<C-S-N>", function()
     harpoon:list():next()
-end)
+end, { desc = "Harpoon Next" })
