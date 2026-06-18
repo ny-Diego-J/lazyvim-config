@@ -1,7 +1,9 @@
 return {
     "folke/which-key.nvim",
-    opts = function()
+    event = "VeryLazy",
+    config = function()
         local wk = require("which-key")
+        wk.setup({})
         wk.add({
             { "<leader>h", group = "Fun & History", icon = "" },
             { "<leader>j", group = "find and seach", icon = "" },

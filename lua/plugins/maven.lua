@@ -2,7 +2,9 @@ _G.last_java_main_class = _G.last_java_main_class or ""
 _G.last_java_args = _G.last_java_args or ""
 
 local M = {
-    "nvim-treesitter/nvim-treesitter",
+    dir = vim.fn.stdpath("config"),
+    name = "maven-runner",
+    event = "VeryLazy",
 }
 
 local function get_project_info()

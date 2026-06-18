@@ -1,18 +1,64 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+
+vim.g.mapleader = " "
+ vim.g.maplocalleader = "\\"
+
+vim.g.autoformat = true
+
+--vim.g.snacks_animate = true
+
+
+-- vim.g.root_spec = { "lsp", { ".git", "lua", "src" }, "cwd" }
+
+-- vim.o.shell = pwsh to set shell to pwsh TODO: configure for windows/linux
+
+-- don't hide deprectaion warnings
+vim.g.deprecation_warnings = false
+
+-- lualine: show document symbole
+
+vim.g.trouble_lualine = true
+
+local opt = vim.opt
+local g = vim.g
+
+opt.clipboard = "unnamedplus"
+
+opt.conceallevel = 2
+opt.cursorline = true
+opt.foldlevel = 99
+opt.foldmethod = "indent"
+opt.list = true
+opt.number = true
+opt.relativenumber = true
+opt.pumblend = 10
+opt.pumheight = 10
+opt.smartindent = true
+opt.smartcase = true
+opt.signcolumn = "yes"
+opt.splitright = true
+opt.termguicolors = true
+opt.undofile = true
+opt.undolevels = 10000
+opt.virtualedit = "block"
+
+
+
+
 vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 
 -- make tab spacing 4 chars
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.expandtab = true
 
-vim.g.neovide_refresh_rate = 60
+g.neovide_refresh_rate = 60
 
-vim.g.neovide_refresh_rate_idle = 5 -- Spart Akku, wenn du nichts tust
-vim.g.neovide_vsync = false -- Testweise VSync deaktivieren
+g.neovide_refresh_rate_idle = 5 -- Spart Akku, wenn du nichts tust
+g.neovide_vsync = false -- Testweise VSync deaktivieren
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -23,6 +69,11 @@ vim.diagnostic.config({
 
 if vim.g.neovide then
     vim.api.nvim_set_current_dir("C:\\Users\\digij")
+    local function paste()
+	    vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
+    end
+    vim.keymap.set({ "n", "i", "v", "c", "t"}, "<C-v>", paste, { silent = true, desc = "windows pasting"})
+
 end
 
 -- zooming in and out

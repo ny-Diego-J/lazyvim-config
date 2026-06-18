@@ -19,7 +19,7 @@ return {
 
     {
         "wakatime/vim-wakatime",
-        event = "LazyFile",
+        event = "VeryLazy",
     },
 
     { "folke/tokyonight.nvim", priority = 1000 },
