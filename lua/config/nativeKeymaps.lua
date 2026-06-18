@@ -96,12 +96,12 @@ map("n", "<leader>xl", function()
 end, { desc = "Location List" })
 
 -- quickfix list
-map("n", "<leader>xq", function()
-  local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
-  if not success and err then
-    vim.notify(err, vim.log.levels.ERROR)
-  end
-end, { desc = "Quickfix List" })
+-- map("n", "<leader>xq", function()
+--   local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
+--   if not success and err then
+--     vim.notify(err, vim.log.levels.ERROR)
+--   end
+-- end, { desc = "Quickfix List" })
 
 map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
 map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
@@ -178,7 +178,7 @@ map("n", "<leader>uI", function() vim.treesitter.inspect_tree() vim.api.nvim_inp
 
 
 --floating terminal
-map("n", "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
+map("n", "<leader>ft", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
 -- map("n", "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
 -- map({"n","t"}, "<c-/>",function() Snacks.terminal.focus(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
 -- map({"n","t"}, "<c-_>",function() Snacks.terminal.focus(nil, { cwd = LazyVim.root() }) end, { desc = "which_key_ignore" })
@@ -200,4 +200,4 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- lua
-map({"n", "x"}, "<localleader>r", function() Snacks.debug.run() end, { desc = "Run Lua", ft = "lua" })
+-- map({"n", "x"}, "<localleader>r", function() Snacks.debug.run() end, { desc = "Run Lua", ft = "lua" })

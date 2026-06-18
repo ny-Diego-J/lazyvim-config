@@ -1,7 +1,7 @@
 return {
     "akinsho/git-conflict.nvim",
     version = "*",
-    lazy = false,
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
         require("git-conflict").setup({
             default_mappings = false,

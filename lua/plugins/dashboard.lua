@@ -36,8 +36,7 @@ return {
                     { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
                     { action = "qa", desc = " Quit", icon = " ", key = "q" },
                 },
-                footer = "better than VS Code"
-
+                footer = "better than VS Code",
             },
         }
 

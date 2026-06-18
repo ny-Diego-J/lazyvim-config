@@ -3,12 +3,11 @@
 -- Add any additional options here
 
 vim.g.mapleader = " "
- vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = "\\"
 
 vim.g.autoformat = true
 
 --vim.g.snacks_animate = true
-
 
 -- vim.g.root_spec = { "lsp", { ".git", "lua", "src" }, "cwd" }
 
@@ -24,12 +23,26 @@ vim.g.trouble_lualine = true
 local opt = vim.opt
 local g = vim.g
 
+if vim.fn.has("win32") == 1 then
+    vim.g.clipboard = {
+        name = "win32yank-fast",
+        copy = {
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf",
+        },
+        paste = {
+            ["+"] = "win32yank.exe -o --lf",
+            ["*"] = "win32yank.exe -o --lf",
+        },
+        cache_enabled = 1,
+    }
+end
 opt.clipboard = "unnamedplus"
 
 opt.conceallevel = 2
 opt.cursorline = true
 opt.foldlevel = 99
-opt.foldmethod = "indent"
+opt.foldmethod = "manual"
 opt.list = true
 opt.number = true
 opt.relativenumber = true
@@ -43,9 +56,6 @@ opt.termguicolors = true
 opt.undofile = true
 opt.undolevels = 10000
 opt.virtualedit = "block"
-
-
-
 
 vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 
@@ -62,7 +72,7 @@ g.neovide_vsync = false -- Testweise VSync deaktivieren
 
 vim.diagnostic.config({
     virtual_text = true,
-    update_in_insert = true,
+    update_in_insert = false,
     signs = true,
     underline = true,
 })
@@ -70,10 +80,9 @@ vim.diagnostic.config({
 if vim.g.neovide then
     vim.api.nvim_set_current_dir("C:\\Users\\digij")
     local function paste()
-	    vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
+        vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
     end
-    vim.keymap.set({ "n", "i", "v", "c", "t"}, "<C-v>", paste, { silent = true, desc = "windows pasting"})
-
+    vim.keymap.set({ "n", "i", "v", "c", "t" }, "<C-v>", paste, { silent = true, desc = "windows pasting" })
 end
 
 -- zooming in and out
