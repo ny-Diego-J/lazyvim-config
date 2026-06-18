@@ -59,7 +59,7 @@ local setTransparent = function()
     if vim.g.neovide_opacity == 0.0 then
         vim.g.neovide_window_blurred = true
         vim.g.neovide_opacity = 0.8
-        vim.cmd.colorscheme("tokyonight-moon")
+        vim.cmd.colorscheme("rose-pine")
     else
         vim.g.neovide_opacity = 0.1
         vim.g.neovide_window_blurred = false
