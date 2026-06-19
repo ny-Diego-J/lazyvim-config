@@ -7,6 +7,9 @@ return {
     {
         "rose-pine/neovim",
         name = "rose-pine",
+        styles = {
+            transparency = true,
+        },
     },
     {
         "LazyVim/LazyVim",
