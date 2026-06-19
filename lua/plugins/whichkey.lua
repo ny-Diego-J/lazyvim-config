@@ -5,6 +5,7 @@ return {
         wk.add({
             { "<leader>h", group = "Fun & History", icon = "" },
             { "<leader>j", group = "find and seach", icon = "" },
+            { "<leader>i", group = "refactor", icon = "" },
         })
     end,
 }
