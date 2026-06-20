@@ -131,3 +131,10 @@ vim.cmd("colorscheme rose-pine")
 -- vim.cmd("colorscheme rose-pine-main")
 -- vim.cmd("colorscheme rose-pine-moon")
 -- vim.cmd("colorscheme rose-pine-dawn")
+
+-- Öffnet den tmux-sessionizer direkt aus Neovim heraus
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tms<CR>")
+vim.keymap.set("n", "<M-h>", "<cmd>silent !tmux neww tms -s 0<CR>")
+vim.keymap.set("n", "<M-t>", "<cmd>silent !tmux neww tms -s 1<CR>")
+vim.keymap.set("n", "<M-n>", "<cmd>silent !tmux neww tms -s 2<CR>")
+vim.keymap.set("n", "<M-s>", "<cmd>silent !tmux neww tms -s 3<CR>")
